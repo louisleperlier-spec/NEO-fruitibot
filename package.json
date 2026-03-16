@@ -1,0 +1,14 @@
+{
+  "name": "frutiger-aero-bot",
+  "version": "1.0.0",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "canvas": "^2.11.2",
+    "dotenv": "^16.4.5",
+    "telegraf": "^4.16.3"
+  }
+}
