@@ -1,7 +1,8 @@
 require("dotenv").config();
 const { Telegraf } = require("telegraf");
 const Anthropic = require("@anthropic-ai/sdk");
-const { createCanvas } = require("@napi-rs/canvas");
+const { createCanvas } = require("@napi-rs/c...
+;
 
 const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
