@@ -7,8 +7,9 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
-    "@napi-rs/canvas": "^0.1.53",
+    "canvas": "^2.11.2",
     "dotenv": "^16.4.5",
     "telegraf": "^4.16.3"
   }
 }
+
