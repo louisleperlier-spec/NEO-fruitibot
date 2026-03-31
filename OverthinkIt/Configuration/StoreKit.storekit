@@ -1,0 +1,51 @@
+{
+  "identifier" : "com.overthink.storekit",
+  "nonRenewingSubscriptions" : [],
+  "products" : [],
+  "settings" : {
+    "_askToBuyEnabled" : false,
+    "_storeKitErrors" : []
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "pro_group",
+      "localizations" : [],
+      "name" : "Overthink Pro",
+      "performanceData" : {
+        "familySharingEnabled" : false
+      },
+      "subscriptions" : [
+        {
+          "adHocOffers" : [],
+          "codeOffers" : [],
+          "displayPrice" : "3.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "01HZ0MONTHLY001",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Unlimited AI overthinking, every day",
+              "displayName" : "Overthink It Pro Monthly",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "Overthinking illimité, tous les jours",
+              "displayName" : "Overthink It Pro Mensuel",
+              "locale" : "fr_FR"
+            }
+          ],
+          "productID" : "com.overthink.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Pro Monthly",
+          "subscriptionGroupID" : "pro_group",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}
