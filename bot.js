@@ -3,6 +3,7 @@ const { Telegraf } = require("telegraf");
 const Anthropic = require("@anthropic-ai/sdk");
 const store = require("./store");
 const { botActions } = require("./store/botSlice");
+const { gainActions } = require("./store/gainSlice");
 const { createCanvas } = require("@napi-rs/c...
 ;
 
@@ -194,6 +195,34 @@ function renderPoster(d) {
 bot.start((ctx) => ctx.reply(`🌊 *Frutiger Aero Poster Studio*\n\nEnvoie-moi un thème !\n\n• Printemps japonais\n• Ocean bioluminescent\n• Aurore boréale\n• Crystal Rain`, { parse_mode: "Markdown" }));
 bot.help((ctx) => ctx.reply(`Envoie un thème pour générer une affiche A6 300 DPI prête pour Etsy !`));
 bot.command("aero", async (ctx) => { const theme = ctx.message.text.replace("/aero","").trim(); if (!theme) return ctx.reply("Donne un thème ! Ex: /aero aurore boréale"); await handleGeneration(ctx, theme); });
+
+bot.command("sale", (ctx) => {
+  store.dispatch(gainActions.recordSale());
+  const { salesCount, totalRevenue, pricePerPoster } = store.getState().gain;
+  ctx.reply(`💰 Vente enregistrée !\n\n• Ventes : *${salesCount}*\n• Prix unitaire : *${pricePerPoster.toFixed(2)} €*\n• Revenu total : *${totalRevenue.toFixed(2)} €*`, { parse_mode: "Markdown" });
+});
+
+bot.command("price", (ctx) => {
+  const input = ctx.message.text.replace("/price", "").trim();
+  const price = parseFloat(input);
+  if (isNaN(price) || price <= 0) return ctx.reply("Usage : /price 4.99");
+  store.dispatch(gainActions.setSalePrice(price));
+  ctx.reply(`✅ Prix mis à jour : *${price.toFixed(2)} €* par affiche`, { parse_mode: "Markdown" });
+});
+
+bot.command("gain", (ctx) => {
+  const { salesCount, totalRevenue, pricePerPoster } = store.getState().gain;
+  const { stats } = store.getState().bot;
+  ctx.reply(
+    `📊 *Tableau de bord Gains*\n\n` +
+    `🎨 Affiches générées : *${stats.totalGenerated}*\n` +
+    `🛒 Ventes enregistrées : *${salesCount}*\n` +
+    `💶 Prix unitaire : *${pricePerPoster.toFixed(2)} €*\n` +
+    `💰 Revenu total : *${totalRevenue.toFixed(2)} €*`,
+    { parse_mode: "Markdown" }
+  );
+});
+
 bot.on("text", async (ctx) => { if (ctx.message.text.startsWith("/")) return; await handleGeneration(ctx, ctx.message.text); });
 
 async function handleGeneration(ctx, theme) {
