@@ -1,6 +1,8 @@
 require("dotenv").config();
 const { Telegraf } = require("telegraf");
 const Anthropic = require("@anthropic-ai/sdk");
+const store = require("./store");
+const { botActions } = require("./store/botSlice");
 const { createCanvas } = require("@napi-rs/c...
 ;
 
@@ -195,23 +197,30 @@ bot.command("aero", async (ctx) => { const theme = ctx.message.text.replace("/ae
 bot.on("text", async (ctx) => { if (ctx.message.text.startsWith("/")) return; await handleGeneration(ctx, ctx.message.text); });
 
 async function handleGeneration(ctx, theme) {
+  const chatId = ctx.chat.id;
+  store.dispatch(botActions.generationStarted(chatId));
   const status = await ctx.reply(`⏳ Génération de *"${theme}"*…`, { parse_mode: "Markdown" });
   try {
-    await ctx.telegram.editMessageText(ctx.chat.id, status.message_id, null, `🎨 Design en cours…`);
+    await ctx.telegram.editMessageText(chatId, status.message_id, null, `🎨 Design en cours…`);
     const designData = await getDesignData(theme);
-    await ctx.telegram.editMessageText(ctx.chat.id, status.message_id, null, `🖼 Rendu…`);
+    await ctx.telegram.editMessageText(chatId, status.message_id, null, `🖼 Rendu…`);
     const canvas = renderPoster(designData);
     const buffer = canvas.toBuffer("image/png");
-    await ctx.telegram.deleteMessage(ctx.chat.id, status.message_id);
+    await ctx.telegram.deleteMessage(chatId, status.message_id);
     await ctx.replyWithDocument(
       { source: buffer, filename: `frutiger-aero-${Date.now()}.png` },
       { caption: `✦ *${designData.title}*\n_${designData.subtitle}_\n\n${designData.description}\n\n🎨 ${designData.mood?.toUpperCase()} · A6 · 300 DPI · Etsy ✅`, parse_mode: "Markdown" }
     );
+    store.dispatch(botActions.generationFinished(chatId));
   } catch (err) {
-    await ctx.telegram.editMessageText(ctx.chat.id, status.message_id, null, `❌ Erreur : ${err.message}`).catch(()=>{});
+    store.dispatch(botActions.generationFailed(chatId));
+    await ctx.telegram.editMessageText(chatId, status.message_id, null, `❌ Erreur : ${err.message}`).catch(()=>{});
   }
 }
 
-bot.launch().then(() => console.log("🌊 Bot démarré !"));
-process.once("SIGINT", () => bot.stop("SIGINT"));
-process.once("SIGTERM", () => bot.stop("SIGTERM"));
+bot.launch().then(() => {
+  store.dispatch(botActions.setBotStatus("running"));
+  console.log("🌊 Bot démarré !");
+});
+process.once("SIGINT", () => { store.dispatch(botActions.setBotStatus("stopped")); bot.stop("SIGINT"); });
+process.once("SIGTERM", () => { store.dispatch(botActions.setBotStatus("stopped")); bot.stop("SIGTERM"); });
