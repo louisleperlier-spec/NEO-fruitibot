@@ -4,6 +4,8 @@ const Anthropic = require("@anthropic-ai/sdk");
 const { createCanvas } = require("@napi-rs/c...
 ;
 
+const { store, setGain, resetGain, getUserGain, GAIN_MIN, GAIN_MAX, GAIN_DEFAULT } = require("./store");
+
 const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
@@ -21,6 +23,15 @@ async function getDesignData(theme) {
 }
 
 const W = 1240, H = 1748;
+
+function applyGainToHex(hex, gain) {
+  if (!hex || !/^#[0-9A-Fa-f]{6}$/.test(hex) || gain === GAIN_DEFAULT) return hex;
+  const n = parseInt(hex.slice(1), 16);
+  const r = Math.min(255, Math.round(((n >> 16) & 255) * gain));
+  const g = Math.min(255, Math.round(((n >> 8) & 255) * gain));
+  const b = Math.min(255, Math.round((n & 255) * gain));
+  return `#${((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1)}`;
+}
 
 function hex2rgba(hex, a) {
   if (!hex || !/^#[0-9A-Fa-f]{6}$/.test(hex)) return `rgba(0,180,220,${a})`;
@@ -104,10 +115,16 @@ function wrapText(ctx, text, cx, y, maxW, lh) {
   ctx.fillText(line.trim(), cx, y);
 }
 
-function renderPoster(d) {
+function renderPoster(d, gain = GAIN_DEFAULT) {
   const canvas = createCanvas(W, H);
   const ctx = canvas.getContext("2d");
-  const p = d.palette || {};
+  const raw = d.palette || {};
+  const p = {
+    bg1: applyGainToHex(raw.bg1, gain),
+    bg2: applyGainToHex(raw.bg2, gain),
+    accent: applyGainToHex(raw.accent, gain),
+    text: raw.text,
+  };
   const bg = ctx.createLinearGradient(0,0,W*.6,H);
   bg.addColorStop(0,p.bg1||"#5bc8e8");
   bg.addColorStop(0.52,p.bg2||"#1aafaa");
@@ -200,7 +217,8 @@ async function handleGeneration(ctx, theme) {
     await ctx.telegram.editMessageText(ctx.chat.id, status.message_id, null, `🎨 Design en cours…`);
     const designData = await getDesignData(theme);
     await ctx.telegram.editMessageText(ctx.chat.id, status.message_id, null, `🖼 Rendu…`);
-    const canvas = renderPoster(designData);
+    const gain = getUserGain(ctx.from.id);
+    const canvas = renderPoster(designData, gain);
     const buffer = canvas.toBuffer("image/png");
     await ctx.telegram.deleteMessage(ctx.chat.id, status.message_id);
     await ctx.replyWithDocument(
@@ -211,6 +229,21 @@ async function handleGeneration(ctx, theme) {
     await ctx.telegram.editMessageText(ctx.chat.id, status.message_id, null, `❌ Erreur : ${err.message}`).catch(()=>{});
   }
 }
+
+bot.command("gain", (ctx) => {
+  const parts = ctx.message.text.split(/\s+/);
+  const userId = ctx.from.id;
+  if (parts.length < 2 || parts[1] === "reset") {
+    store.dispatch(resetGain({ userId }));
+    return ctx.reply(`🎚 Gain réinitialisé à ${GAIN_DEFAULT}.\n\nUsage: /gain <valeur> (${GAIN_MIN}–${GAIN_MAX})\nExemple: /gain 1.4 pour des couleurs plus vives.`);
+  }
+  const value = parseFloat(parts[1]);
+  if (isNaN(value) || value < GAIN_MIN || value > GAIN_MAX) {
+    return ctx.reply(`❌ Valeur invalide. Utilise un nombre entre ${GAIN_MIN} et ${GAIN_MAX}.\nExemple: /gain 1.3`);
+  }
+  store.dispatch(setGain({ userId, value }));
+  ctx.reply(`🎚 Gain réglé à *${value.toFixed(2)}* pour tes prochaines affiches !`, { parse_mode: "Markdown" });
+});
 
 bot.launch().then(() => console.log("🌊 Bot démarré !"));
 process.once("SIGINT", () => bot.stop("SIGINT"));
