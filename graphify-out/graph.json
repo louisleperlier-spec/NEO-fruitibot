@@ -1,0 +1,587 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "id": "package_json",
+      "community": 1,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "id": "neo_fruitibot_package_name",
+      "community": 1,
+      "norm_label": "name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "id": "neo_fruitibot_package_version",
+      "community": 1,
+      "norm_label": "version"
+    },
+    {
+      "label": "main",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "id": "neo_fruitibot_package_main",
+      "community": 1,
+      "norm_label": "main"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "id": "neo_fruitibot_package_scripts",
+      "community": 1,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "start",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "id": "neo_fruitibot_package_scripts_start",
+      "community": 1,
+      "norm_label": "start"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "id": "neo_fruitibot_package_dependencies",
+      "community": 3,
+      "norm_label": "dependencies"
+    },
+    {
+      "label": "@anthropic-ai/sdk",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "id": "neo_fruitibot_package_dependencies_anthropic_ai_sdk",
+      "community": 3,
+      "norm_label": "@anthropic-ai/sdk"
+    },
+    {
+      "label": "canvas",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "id": "neo_fruitibot_package_dependencies_canvas",
+      "community": 3,
+      "norm_label": "canvas"
+    },
+    {
+      "label": "dotenv",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "id": "neo_fruitibot_package_dependencies_dotenv",
+      "community": 3,
+      "norm_label": "dotenv"
+    },
+    {
+      "label": "telegraf",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "id": "neo_fruitibot_package_dependencies_telegraf",
+      "community": 3,
+      "norm_label": "telegraf"
+    },
+    {
+      "label": "bot.js",
+      "file_type": "code",
+      "source_file": "bot.js",
+      "source_location": "L1",
+      "id": "bot_js",
+      "community": 0,
+      "norm_label": "bot.js"
+    },
+    {
+      "label": "{ Telegraf }",
+      "file_type": "code",
+      "source_file": "bot.js",
+      "source_location": "L2",
+      "id": "neo_fruitibot_bot_telegraf",
+      "community": 0,
+      "norm_label": "{ telegraf }"
+    },
+    {
+      "label": "Anthropic",
+      "file_type": "code",
+      "source_file": "bot.js",
+      "source_location": "L3",
+      "id": "neo_fruitibot_bot_anthropic",
+      "community": 0,
+      "norm_label": "anthropic"
+    },
+    {
+      "label": "bot",
+      "file_type": "code",
+      "source_file": "bot.js",
+      "source_location": "L7",
+      "id": "neo_fruitibot_bot_bot",
+      "community": 0,
+      "norm_label": "bot"
+    },
+    {
+      "label": "getDesignData()",
+      "file_type": "code",
+      "source_file": "bot.js",
+      "source_location": "L13",
+      "id": "neo_fruitibot_bot_getdesigndata",
+      "community": 0,
+      "norm_label": "getdesigndata()"
+    },
+    {
+      "label": "hex2rgba()",
+      "file_type": "code",
+      "source_file": "bot.js",
+      "source_location": "L25",
+      "id": "neo_fruitibot_bot_hex2rgba",
+      "community": 2,
+      "norm_label": "hex2rgba()"
+    },
+    {
+      "label": "rrect()",
+      "file_type": "code",
+      "source_file": "bot.js",
+      "source_location": "L31",
+      "id": "neo_fruitibot_bot_rrect",
+      "community": 0,
+      "norm_label": "rrect()"
+    },
+    {
+      "label": "drawBubble()",
+      "file_type": "code",
+      "source_file": "bot.js",
+      "source_location": "L41",
+      "id": "neo_fruitibot_bot_drawbubble",
+      "community": 0,
+      "norm_label": "drawbubble()"
+    },
+    {
+      "label": "drawLeaf()",
+      "file_type": "code",
+      "source_file": "bot.js",
+      "source_location": "L55",
+      "id": "neo_fruitibot_bot_drawleaf",
+      "community": 2,
+      "norm_label": "drawleaf()"
+    },
+    {
+      "label": "drawDrop()",
+      "file_type": "code",
+      "source_file": "bot.js",
+      "source_location": "L66",
+      "id": "neo_fruitibot_bot_drawdrop",
+      "community": 2,
+      "norm_label": "drawdrop()"
+    },
+    {
+      "label": "drawFlare()",
+      "file_type": "code",
+      "source_file": "bot.js",
+      "source_location": "L78",
+      "id": "neo_fruitibot_bot_drawflare",
+      "community": 2,
+      "norm_label": "drawflare()"
+    },
+    {
+      "label": "wrapText()",
+      "file_type": "code",
+      "source_file": "bot.js",
+      "source_location": "L95",
+      "id": "neo_fruitibot_bot_wraptext",
+      "community": 0,
+      "norm_label": "wraptext()"
+    },
+    {
+      "label": "renderPoster()",
+      "file_type": "code",
+      "source_file": "bot.js",
+      "source_location": "L107",
+      "id": "neo_fruitibot_bot_renderposter",
+      "community": 2,
+      "norm_label": "renderposter()"
+    },
+    {
+      "label": "handleGeneration()",
+      "file_type": "code",
+      "source_file": "bot.js",
+      "source_location": "L197",
+      "id": "neo_fruitibot_bot_handlegeneration",
+      "community": 0,
+      "norm_label": "handlegeneration()"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "neo_fruitibot_package_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "neo_fruitibot_package_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "neo_fruitibot_package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "neo_fruitibot_package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "neo_fruitibot_package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "neo_fruitibot_package_scripts",
+      "target": "neo_fruitibot_package_scripts_start",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "neo_fruitibot_package_dependencies",
+      "target": "neo_fruitibot_package_dependencies_anthropic_ai_sdk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "neo_fruitibot_package_dependencies",
+      "target": "neo_fruitibot_package_dependencies_canvas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "neo_fruitibot_package_dependencies",
+      "target": "neo_fruitibot_package_dependencies_dotenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "neo_fruitibot_package_dependencies",
+      "target": "neo_fruitibot_package_dependencies_telegraf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "bot_js",
+      "target": "neo_fruitibot_bot_anthropic",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "bot_js",
+      "target": "neo_fruitibot_bot_bot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "bot_js",
+      "target": "neo_fruitibot_bot_drawbubble",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "bot_js",
+      "target": "neo_fruitibot_bot_drawdrop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "bot_js",
+      "target": "neo_fruitibot_bot_drawflare",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "bot_js",
+      "target": "neo_fruitibot_bot_drawleaf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "bot_js",
+      "target": "neo_fruitibot_bot_getdesigndata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L197",
+      "weight": 1.0,
+      "source": "bot_js",
+      "target": "neo_fruitibot_bot_handlegeneration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "bot_js",
+      "target": "neo_fruitibot_bot_hex2rgba",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "bot_js",
+      "target": "neo_fruitibot_bot_renderposter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "bot_js",
+      "target": "neo_fruitibot_bot_rrect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "bot_js",
+      "target": "neo_fruitibot_bot_telegraf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "bot_js",
+      "target": "neo_fruitibot_bot_wraptext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L201",
+      "weight": 1.0,
+      "source": "neo_fruitibot_bot_handlegeneration",
+      "target": "neo_fruitibot_bot_getdesigndata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "neo_fruitibot_bot_drawdrop",
+      "target": "neo_fruitibot_bot_hex2rgba",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "neo_fruitibot_bot_drawflare",
+      "target": "neo_fruitibot_bot_hex2rgba",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "neo_fruitibot_bot_drawleaf",
+      "target": "neo_fruitibot_bot_hex2rgba",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "neo_fruitibot_bot_renderposter",
+      "target": "neo_fruitibot_bot_hex2rgba",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "neo_fruitibot_bot_renderposter",
+      "target": "neo_fruitibot_bot_rrect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "neo_fruitibot_bot_renderposter",
+      "target": "neo_fruitibot_bot_drawleaf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "neo_fruitibot_bot_renderposter",
+      "target": "neo_fruitibot_bot_drawdrop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L187",
+      "weight": 1.0,
+      "source": "neo_fruitibot_bot_renderposter",
+      "target": "neo_fruitibot_bot_drawflare",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L173",
+      "weight": 1.0,
+      "source": "neo_fruitibot_bot_renderposter",
+      "target": "neo_fruitibot_bot_wraptext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "bot.js",
+      "source_location": "L203",
+      "weight": 1.0,
+      "source": "neo_fruitibot_bot_handlegeneration",
+      "target": "neo_fruitibot_bot_renderposter",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "32e73d71e9a9d796f4176be46dbf88c861da0d99"
+}
